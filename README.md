@@ -40,7 +40,7 @@ vim deploy/flux-deployment.yaml
 --git-url=git@github.com:YOUR-GITHUB/REPO-NAME
 `
 
-PS: 因为官方的Get-Started-Example过于繁琐，笔者在这里提供了更直观的例子，这个例子只由一个很简单的Nginx-Deployment和带有NodePort的Nginx-Service组成，项目已经存储在[Github](https://github.com/youngercloud/flux-get-start-easy)
+PS: 因为官方的例子过于繁琐，笔者在这里提供了更直观的例子，这个例子只由一个很简单的Nginx-Deployment和带有NodePort的Nginx-Service组成，项目已经存储在[Github](https://github.com/youngercloud/flux-get-start-easy)
 
 部署Flux到Kubernetes集群中
 
