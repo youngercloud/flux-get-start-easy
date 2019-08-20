@@ -74,16 +74,16 @@ fluxctl sync
 
 这个信息的出现，表明了同步已经完毕，接下来我们就可以尝试使用Git去管理Kubernetes集群了
  
-我们先执行kubectl get all查看当前状态
+我们先执行`kubectl get all`查看当前状态
 不出意外，我们没有手动的使用kubectl任何操作，Flux已经自动的帮我们做好了本地集群和远端GitRepo的同步工作，Nginx-Pod已经处在了Running状态
 
 这时，我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是一样的
-1. 1如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的代码
-2. 2更改我们的yaml文件，在这里，我对Nginx版本做出了修改，从1.13.12更改到了1.14.2
-3. 3git add FILE_CHANGED
-4. 4git commit -m "DESCRIPTION"
-5. 5git push
+1. 如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的代码
+2. 更改我们的yaml文件，在这里，我对Nginx版本做出了修改，从1.13.12更改到了1.14.2
+3. git add FILE_CHANGED
+4. git commit -m "DESCRIPTION"
+5. git push
 
-一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用fluxctl sync命令去进行同步
+一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步
 
 可以看到，集群更新已经完毕，我们的Nginx也修改到了1.14.2版本
