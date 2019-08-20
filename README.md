@@ -1,4 +1,4 @@
-# GitOps
+# 基于Flux项目的Kubernetes GitOps实践
 
 GitOps, 这貌似已经并不是一个新鲜的概念了。在2018年5月初丹麦的哥本哈根的KubeCon大会上，Weaveworks公司的演讲将GitOps与Istio Service Mesh进行了很好的集成，如果说以前Docker Swarm与Kubernetes竞争之时Docker公司提出了自己的Docker Native，Kubernetes基于CNCF提出了自己的Cloud Native，毫不夸张的说，Weaveworks公司开源的Weave Flux也可以说是当今GitOps的主流实践了，而在2019年8月20日，Flux项目也最终成功加入了CNCF Sandbox，成为了CNCF Sandbox中的一员。
 
