@@ -21,30 +21,40 @@ GitOps, 这貌似已经并不是一个新鲜的概念了。在2018年5月初丹�
 Flux的安装默认提供了两种方式，传统的使用yaml文件部署的方式或者通过Helm的部署。但是Flux暂未支持Helm的V3版本，所以我们使用传统方式去部署(笔者多嘴瞎扯一句:由于笔者使用的是HelmV3版本，也坚信去Tiller化的正确性，但是目前开源社区对Helm V3版本的响应程度着实不高，更多人把精力转向了Kubernetes原生的Kustomize)
 
 我们直接Clone Flux项目的Github Repo
+
 `
 git clone https://github.com/fluxcd/flux
 cd flux/
 vim deploy/flux-deployment.yaml
 `
+
 在这里，我们需要将--git-url更改为存储生产环境yaml文件的Github Repo，当然如果你不想把生产环境的yaml文件托管在Github上，Flux也提供了Gitlab的支持去更好的进行私有环境的部署与管理。
+
 `
 --git-url=git@github.com:YOUR-GITHUB/REPO-NAME
 `
+
 PS: 因为官方的Get-Started-Example过于繁琐，笔者在这里提供了更直观的例子，这个例子只由一个很简单的Nginx-Deployment和带有NodePort的Nginx-Service组成，项目已经存储在[Github](https://github.com/youngercloud/flux-get-start-easy)
 
 部署Flux到Kubernetes集群中
+
 `
 kubectl apply -f deploy
 `
+
 PS: 如果使用minikube进行实验，请确保安装socat
+
 `
 yum install -y socat
 `
+
 确保Flux Pod进入Running状态并Ready后，我们还需要下载fluxctl二进制的命令包，fluxctl将与Kubernetes集群中的flux Pod进行交互
+
 `
 wget https://github.com/fluxcd/flux/releases/download/1.13.1/fluxctl_linux_amd64
 mv fluxctl_linux_amd64 fluxctl && chmod +x fluxctl && cp fluxctl /usr/local/bin/
 `
+
 fluxctl安装好之后，我们需要部署我们的Deploy Key到Github Repo上，以实现本地集群和远端Github Repo的连调
 
 
