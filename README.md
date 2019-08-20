@@ -98,7 +98,7 @@ fluxctl sync
 
 ![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
 
-我们使用curl命令对已经被Flux部署在Kubernetes集群中的Nginx进行访问测试，可以看到访问测试是成功的
+我们可以使用curl命令对已经被Flux部署在Kubernetes集群中的Nginx进行访问测试，可以看到访问测试是成功的。
 
 ![Nginx-Old-Curl.png](imgs/Nginx-Old-Curl.png?raw=true) 	
 
@@ -118,7 +118,7 @@ fluxctl sync
 
 一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。如果不执行这条命令，Flux也会过几分钟之后自动的去进行同步。
 
-通过curl命令的结果我们可以看到，集群更新已经完毕，我们Kubernetes集群中的Nginx也修改到了1.14.2版本。
+通过curl命令的测试结果我们可以看到，集群更新已经完毕，我们Kubernetes集群中的Nginx也修改到了1.14.2版本。
 
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
 
