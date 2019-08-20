@@ -24,7 +24,13 @@ Flux的安装默认提供了两种方式，传统的使用yaml文件部署的方
 
 `
 git clone https://github.com/fluxcd/flux
+`
+
+`
 cd flux/
+`
+
+`
 vim deploy/flux-deployment.yaml
 `
 
@@ -52,6 +58,9 @@ yum install -y socat
 
 `
 wget https://github.com/fluxcd/flux/releases/download/1.13.1/fluxctl_linux_amd64
+`
+
+`
 mv fluxctl_linux_amd64 fluxctl && chmod +x fluxctl && cp fluxctl /usr/local/bin/
 `
 
