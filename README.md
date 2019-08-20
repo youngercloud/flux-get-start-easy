@@ -114,4 +114,4 @@ fluxctl sync
 
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
 
-## > Flux项目Github地址： https://github.com/fluxcd/flux
+## Flux项目Github地址： https://github.com/fluxcd/flux
