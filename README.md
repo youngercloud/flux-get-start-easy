@@ -98,6 +98,10 @@ fluxctl sync
 
 ![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
 
+我们使用curl命令对已经被Flux部署在Kubernetes集群中的Nginx进行访问测试，可以看到访问测试是成功的
+
+![Nginx-Old-Curl.png](imgs/Nginx-Old-Curl.png?raw=true) 	
+
 在这时，如果我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是大致相同的
 
 **1. 如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的yaml**
