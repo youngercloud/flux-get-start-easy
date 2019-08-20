@@ -113,3 +113,6 @@ fluxctl sync
 通过curl命令的结果我们可以看到，集群更新已经完毕，我们Kubernetes集群中的Nginx也修改到了1.14.2版本。
 
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
+
+> Flux项目Github地址
+https://github.com/fluxcd/flux
