@@ -71,7 +71,7 @@ mv fluxctl_linux_amd64 fluxctl && chmod +x fluxctl && cp fluxctl /usr/local/bin/
 fluxctl安装好之后，我们需要部署我们的Deploy Key到Github Repo上，以实现本地集群和远端Github Repo的连调。
 
 
-我们可以通过fluxctl identity命令获取Flux的SSH公钥，当然如果你想打造一个更方便管理的环境，Flux也可以使用系统SSH所产生的私钥，具体的做法是先删除原本Flux的secret，再通过--from-file=priveate_key的方式重新创建需要被Pod挂载的Secret私钥。
+我们可以通过fluxctl identity命令获取Flux的SSH公钥，如果你想打造一个更方便管理的环境，Flux也可以使用系统SSH所产生的私钥，具体的做法是先删除原本Flux的secret，再通过--from-file=priveate_key的方式重新创建需要被Pod挂载的Secret私钥。
 
 `
 fluxctl identity
@@ -87,16 +87,16 @@ fluxctl sync
 
 ![First-Sync-Success.png](imgs/First-Sync-Success.png?raw=true)
 
-这条信息的出现，表明了同步已经完毕。接下来我们就可以尝试使用Git去管理Kubernetes集群了。
+这条信息的出现，表明了集群同步已经完毕。接下来我们就可以尝试使用Git去管理Kubernetes集群了。
  
-我们先执行`kubectl get all`查看当前状态。
+我们先执行`kubectl get all`查看Kubernetes集群的当前状态。
 不出意外，我们没有手动的使用kubectl执行任何操作，Flux已经自动的帮我们做好了本地集群和远端Git Repo的同步工作，Nginx-Pod已经处在了Running状态。
 
 ![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
 
-这时，我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是一样的
+在这时，如果我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是大致相同的
 1. 如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的代码
-2. 更改我们的yaml文件，在这里，我对Nginx版本做出了修改，从1.13.12更改到了1.14.2
+2. 在本地仓库去更改我们的yaml文件，在这个例子中，我对之前所部署的Nginx版本做出了修改，从1.13.12升级到了1.14.2
 
 ![Change-to-1.14.2.png](imgs/Change-to-1.14.2.png?raw=true)
 
@@ -104,7 +104,10 @@ fluxctl sync
 4. git commit -m "DESCRIPTION"
 5. git push
 
-一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。
+一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。如果不执行这条命令，Flux也会几分钟过后自动的进行同步。
+
 ![GIthub-Commit-Success.png](imgs/GIthub-Commit-Success.png?raw=true)
-可以看到，集群更新已经完毕，我们的Nginx也修改到了1.14.2版本。
+
+通过curl命令的结果我们可以看到，集群更新已经完毕，我们Kubernetes集群中的Nginx也修改到了1.14.2版本。
+
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
