@@ -2,6 +2,8 @@
 
 GitOps, 这貌似已经并不是一个新鲜的概念了。在2018年5月初丹麦的哥本哈根的KubeCon大会上，Weaveworks公司的演讲将GitOps与Istio Service Mesh进行了很好的集成，如果说以前Docker Swarm与Kubernetes竞争之时Docker公司提出了自己的Docker Native，Kubernetes基于CNCF提出了自己的Cloud Native，毫不夸张的说，Weaveworks公司开源的Weave Flux也可以说是当今GitOps的主流实践了，而在2019年8月20日，Flux项目也最终成功加入了CNCF Sandbox，成为了CNCF Sandbox中的一员。
 
+![flux-cd-diagram.png](imgs/flux-cd-diagram.png?raw=true)
+
 当然，GitOps的概念是从DevOps慢慢延伸出来的，把时间轴向前调一调，如2014年左右如火如荼的DevOps一样，当时从大到小的互联网企业都在招聘DevOps工程师，然而慢慢脱离了以前DevOps理念的不足够成熟，随着DevOps的发展，人们才慢慢意识到DevOps并不是所谓的"运维开发", 而是一种注重了开发团队、测试团队、运维团队的更好的沟通协作，从而去实现持续集成和持续交付的最佳实践。
 
 如果说之前对DevOps的理念理解是"顾名思义"而导致的问题，那么GitOps会不会存在相同的问题呢?
@@ -18,6 +20,9 @@ GitOps, 这貌似已经并不是一个新鲜的概念了。在2018年5月初丹�
 
 接下来的实战，就让我们一起来看看Flux项目是怎么用Git来管理整个Kubernetes集群的。
 ***
+
+## Flux CD 实践
+
 Flux的安装默认提供了两种方式，传统的使用yaml文件部署的方式或者通过Helm的部署。但是Flux暂未支持Helm的V3版本，所以我们使用传统方式去部署(笔者多嘴瞎扯一句:由于笔者使用的是HelmV3版本，也坚信去Tiller化的正确性，但是目前开源社区对Helm V3版本的响应程度着实不高，更多人把精力转向了Kubernetes原生的Kustomize)
 
 我们直接Clone Flux项目的Github Repo
@@ -114,4 +119,9 @@ fluxctl sync
 
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
 
-## Flux项目Github地址： https://github.com/fluxcd/flux
+##  参考连接:
+### Flux项目Github Repo： https://github.com/fluxcd/flux
+### Flux项目官方网站： https://fluxcd.io/
+
+
+![Flux-Logo.png](imgs/Flux-Logo.png?raw=true)
