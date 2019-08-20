@@ -95,6 +95,7 @@ fluxctl sync
 ![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
 
 在这时，如果我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是大致相同的
+**
 1. 如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的代码
 2. 在本地仓库去更改我们的yaml文件，在这个例子中，我对之前所部署的Nginx版本做出了修改，从1.13.12升级到了1.14.2
 
@@ -103,10 +104,8 @@ fluxctl sync
 3. git add FILE_CHANGED
 4. git commit -m "DESCRIPTION"
 5. git push
-
-一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。如果不执行这条命令，Flux也会几分钟过后自动的进行同步。
-
-![GIthub-Commit-Success.png](imgs/GIthub-Commit-Success.png?raw=true)
+**
+一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。如果不执行这条命令，Flux也会几分钟过后自动的去进行同步。
 
 通过curl命令的结果我们可以看到，集群更新已经完毕，我们Kubernetes集群中的Nginx也修改到了1.14.2版本。
 
