@@ -93,6 +93,6 @@ fluxctl sync
 4. git commit -m "DESCRIPTION"
 5. git push
 
-一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步
+一旦我们的代码被提交到远端的GitRepo仓库后，我们就可以再次使用`fluxctl sync`命令去进行同步。
 
-可以看到，集群更新已经完毕，我们的Nginx也修改到了1.14.2版本
+可以看到，集群更新已经完毕，我们的Nginx也修改到了1.14.2版本。
