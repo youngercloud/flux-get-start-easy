@@ -35,7 +35,7 @@ vim deploy/flux-deployment.yaml
 `
 
 在这里，我们需要将--git-url更改为存储生产环境yaml文件的Github Repo，当然如果你不想把生产环境的yaml文件托管在Github上，Flux也提供了Gitlab的支持去更好的进行私有环境的部署与管理。
-
+![Git-Repo-Config.png](imgs/Git-Repo-Config.png?raw=true)
 `
 --git-url=git@github.com:YOUR-GITHUB/REPO-NAME
 `
@@ -55,7 +55,7 @@ yum install -y socat
 `
 
 确保Flux Pod进入Running状态并Ready后，我们还需要下载fluxctl二进制的命令包，fluxctl将与Kubernetes集群中的flux Pod进行交互
-
+![Flux-Deployed.png](imgs/Flux-Deployed.png?raw=true)
 `
 wget https://github.com/fluxcd/flux/releases/download/1.13.1/fluxctl_linux_amd64
 `
@@ -80,12 +80,12 @@ fluxctl sync
 `
 
 不出意外的话，Flux会返回以下信息
-
+![First-Sync-Success.png](imgs/First-Sync-Success.png?raw=true)
 这个信息的出现，表明了同步已经完毕，接下来我们就可以尝试使用Git去管理Kubernetes集群了
  
 我们先执行`kubectl get all`查看当前状态
-不出意外，我们没有手动的使用kubectl任何操作，Flux已经自动的帮我们做好了本地集群和远端GitRepo的同步工作，Nginx-Pod已经处在了Running状态
-
+不出意外，我们没有手动的使用kubectl执行任何操作，Flux已经自动的帮我们做好了本地集群和远端Git Repo的同步工作，Nginx-Pod已经处在了Running状态。
+![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
 这时，我们尝试用git去对集群做出更改，整体的流程和我们平时修改代码的流程是一样的
 1. 如果本地仓库没有yaml文件，我们需要先从远端仓库pull下来我们的代码
 2. 更改我们的yaml文件，在这里，我对Nginx版本做出了修改，从1.13.12更改到了1.14.2
