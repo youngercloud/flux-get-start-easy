@@ -66,8 +66,6 @@ fluxctl安装好之后，我们需要部署我们的Deploy Key到Github Repo上�
 ![New-Version-Success.png](imgs/New-Version-Success.png?raw=true)
 
 ##  参考连接:
-### Flux项目Github Repo： https://github.com/fluxcd/flux
-### Flux项目官方网站： https://fluxcd.io/
 * Flux项目Github Repo： https://github.com/fluxcd/flux
 * Flux项目官方网站： https://fluxcd.io/
 
