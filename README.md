@@ -24,17 +24,17 @@ Flux的安装默认提供了两种方式，传统的使用yaml文件部署的方
 
 我们直接Clone Flux项目的Github Repo
 
-`
+```shell
 git clone https://github.com/fluxcd/flux
-`
+```
 
-`
+```shell
 cd flux/
-`
+```
 
-`
+```shell
 vim deploy/flux-deployment.yaml
-`
+```
 
 在这里，我们需要将--git-url更改为存储生产环境yaml文件的Github Repo，当然如果不想把生产环境的yaml文件托管在Github上，Flux也提供了Gitlab的支持去更好的进行私有环境的部署与管理。
 
