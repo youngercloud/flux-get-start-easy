@@ -91,7 +91,7 @@ fluxctl sync
 
 这条信息的出现表明了集群同步已经完毕。接下来我们就可以尝试使用Git去管理Kubernetes集群了。
  
-我们先执行`kubectl get all`查看Kubernetes集群的当前状态。
+我们先执行```shell kubectl get all```查看Kubernetes集群的当前状态。
 可以清楚的看到，我们没有手动的使用kubectl执行任何操作，Flux已经自动的帮我们做好了本地集群和远端Git Repo的同步工作，Nginx-Pod已经处在了Running状态。
 
 ![Nginx-Deployment-Succeed.png](imgs/Nginx-Deployment-Succeed.png?raw=true)
